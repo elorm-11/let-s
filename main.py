@@ -43,10 +43,15 @@ while running:
                                        and event.key == pygame.K_x):
         running = False
 
-    if not win:
+   if not won:
       keys = pygame.key.get_pressed()
       x_change = (key[pygame.K_RIGHT] -keys[pygame])
-         
+      y_change = (keys[pygame.K_DOWN]  - keys[pygame.K_up]) * MOVEMENT_SPEED
+      sprite1.move(x_change, y_change)
 
-
-                                          
+      if sprite1.rect.colliderect(sprite2.rect):
+         all_sprites.remove(sprite2)
+         won = True  
+                                                                                                            
+                                                                                                
+                                           
